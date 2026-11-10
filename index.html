@@ -216,6 +216,12 @@ footer p{color:var(--muted)}
 footer a{color:var(--orange)}
 footer .logo{color:var(--brown)!important}
 .legal{border-top:1px solid rgba(0,0,0,.1);color:var(--muted)}
+/* Team: editor */
+.team-divider{height:1px;background:var(--line);margin:90px 0 80px}
+.about-grid.reverse{grid-template-columns:1.2fr .8fr}
+.about-grid.reverse .portrait{order:2}
+.stat .big.sm{font-size:40px;letter-spacing:-.02em}
+@media(max-width:900px){.about-grid.reverse{grid-template-columns:1fr}.about-grid.reverse .portrait{order:0}}
 @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr)}.service-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.about-grid,.contact-box{grid-template-columns:1fr;gap:36px}.process-grid{grid-template-columns:repeat(2,1fr)}.portrait{max-width:420px}.contact-side{border:0;padding:0}}
 @media(max-width:650px){
@@ -312,6 +318,40 @@ footer .logo{color:var(--brown)!important}
         </div>
       </div>
       <a class="button button-outline linkedin-btn" href="https://www.linkedin.com/in/sid-siddarth/" target="_blank" rel="noopener">View LinkedIn Profile ↗</a>
+    </div>
+  </div>
+
+  <div class="container"><div class="team-divider"></div></div>
+
+  <div class="container about-grid reverse" id="team">
+    <div class="portrait">
+      <!-- PORTRAIT: upload to the same folder. Accepted names: portraitblou.jpg / .jpeg / .png / .webp -->
+      <img id="editorPhoto" src="portraitblou.jpg" alt="[Her Name], Lead Editor at Meridian Admissions">
+      <div><span style="font-family:var(--serif);font-size:24px">Editor Portrait</span><br><small>Add portraitblou.jpg</small></div>
+    </div>
+
+    <div class="about-copy">
+      <div class="eyebrow">The Editorial Lead</div>
+      <div class="founder-name">[Her Name]</div>
+      <div class="founder-role">Lead Editor, Meridian Admissions</div>
+      <h2>Twenty-six years of making complex writing precise.</h2>
+      <p>Her career has been spent in scientific, technical and medical (STM) journal publishing, where accuracy and clarity are non-negotiable. At Meridian, she serves as main editor, reviewing applicant essays for editorial and grammatical faults.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="big">26<small> yrs</small></div>
+          <div><h3>Professional copyediting</h3><p>Copyediting of STM journals across leading scientific and medical publishers</p></div>
+        </div>
+        <div class="stat">
+          <div class="big sm">STM</div>
+          <div><h3>Leading publishing houses</h3>
+            <div class="tags"><span>Wiley (especially Wiley US)</span><span>Elsevier</span><span>Wolters Kluwer</span><span>Lippincott Williams &amp; Wilkins</span><span>American Association for Cancer Research</span></div></div>
+        </div>
+        <div class="stat">
+          <div class="big sm">Lead</div>
+          <div><h3>Main editor at Meridian</h3><p>Reviews essays for editorial and grammatical faults</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -498,19 +538,22 @@ footer .logo{color:var(--brown)!important}
     a.rel = "noopener";
   });
 
-  /* Founder photo: tries common file names until one loads */
-  (function(){
-    const img = document.getElementById("founderPhoto");
-    const names = ["portrait.jpg","portrait.jpeg","portrait.png","portrait.webp",
-                   "Portrait.jpg","Portrait.jpeg","Portrait.png","portrait.JPG",
-                   "portrait.JPEG","portrait.PNG","Portrait.JPG","Portrait.PNG"];
+  /* Photos: try common file names/extensions until one loads */
+  function loadPhoto(id, base){
+    const img = document.getElementById(id);
+    if (!img) return;
+    const cap = base.charAt(0).toUpperCase() + base.slice(1);
+    const names = [];
+    [base, cap].forEach(b => ["jpg","jpeg","png","webp","JPG","JPEG","PNG"].forEach(e => names.push(b + "." + e)));
     let i = 0;
     img.onerror = function(){
       i++;
       if (i < names.length) { img.src = names[i]; }
       else { img.style.display = "none"; }
     };
-  })();
+  }
+  loadPhoto("founderPhoto", "portrait");
+  loadPhoto("editorPhoto", "portraitblou");
 
   function toggleMenu(){
     const nav = document.getElementById("navLinks");
