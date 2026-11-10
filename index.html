@@ -145,6 +145,18 @@ footer a{color:var(--gold);font-size:13px}
 .contact-box{border-radius:30px}
 .logo{letter-spacing:4px}
 .hero h1{font-weight:400;letter-spacing:-.5px}
+/* Why work with Meridian */
+.why-section{padding:80px 0}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.why-item{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:18px}
+.why-item .tick{flex:0 0 26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.why-item strong{display:block;font-family:var(--serif);font-size:21px;font-weight:600;color:var(--brown);line-height:1.25}
+.why-item span.d{display:block;font-size:14px;color:var(--muted);margin-top:3px}
+.why-item a{color:var(--orange);border-bottom:1px solid var(--orange)}
+.founder-name{margin:14px 0 6px;font-family:var(--serif);font-size:clamp(40px,4.6vw,58px);color:var(--brown);line-height:1.05}
+.founder-role{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.linkedin-btn{margin-top:26px}
+.legal{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;line-height:1.7;color:#a99b8a;max-width:900px}
 @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr)}.service-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.about-grid,.contact-box{grid-template-columns:1fr;gap:36px}.process-grid{grid-template-columns:repeat(2,1fr)}.portrait{max-width:420px}.contact-side{border:0;padding:0}}
 @media(max-width:650px){
@@ -213,12 +225,14 @@ footer a{color:var(--gold);font-size:13px}
   <div class="container about-grid">
     <div class="portrait">
       <!-- PORTRAIT: upload your photo to the same folder as this file. Accepted names: portrait.jpg / .jpeg / .png / .webp -->
-      <img id="founderPhoto" src="portrait.jpg" alt="Founder of Meridian Admissions">
+      <img id="founderPhoto" src="portrait.jpg" alt="Siddarth, Founder of Meridian Admissions">
       <div><span style="font-family:var(--serif);font-size:24px">Founder Portrait</span><br><small>Add portrait.jpg</small></div>
     </div>
 
     <div class="about-copy">
       <div class="eyebrow">The Person Behind Meridian</div>
+      <div class="founder-name">Siddarth</div>
+      <div class="founder-role">Founder, Meridian Admissions</div>
       <h2>Someone who has been through it, and built a career on it.</h2>
       <p>I have applied, been admitted, studied and worked in the United States. That experience, plus eight years in professional consulting businesses, is what I bring to your application.</p>
 
@@ -238,6 +252,7 @@ footer a{color:var(--gold);font-size:13px}
             <div class="tags"><span>Full-tuition scholarship</span></div></div>
         </div>
       </div>
+      <a class="button button-outline linkedin-btn" href="https://www.linkedin.com/in/sid-siddarth/" target="_blank" rel="noopener">View LinkedIn Profile ↗</a>
     </div>
   </div>
 </section>
@@ -350,6 +365,24 @@ footer a{color:var(--gold);font-size:13px}
   </div>
 </section>
 
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Why Meridian</div>
+      <h2>Why Work With Meridian</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><span class="tick">✓</span><div><strong>Founder-led guidance</strong><span class="d">Applicants work directly with the founder.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>Verifiable background</strong><span class="d">Verifiable academic and professional background. <a href="https://www.linkedin.com/in/sid-siddarth/" target="_blank" rel="noopener">See LinkedIn</a>.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>One-on-one focused guidance</strong><span class="d">Individual attention built around your profile and goals.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>Transparent pricing</strong><span class="d">Defined services and transparent pricing.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>Written engagement terms</strong><span class="d">Scope, fees and timelines agreed in writing.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>Confidential handling</strong><span class="d">Confidential handling of application materials.</span></div></div>
+      <div class="why-item"><span class="tick">✓</span><div><strong>No guarantees</strong><span class="d">No guarantees of admission or scholarships.</span></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="difference-section">
   <div class="container">
     <div class="section-heading">
@@ -390,7 +423,10 @@ footer a{color:var(--gold);font-size:13px}
       <p>Your experience. Your story. Your next chapter.</p>
     </div>
     <p>© <span id="year"></span> Meridian Admissions. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
+    <div style="display:flex;gap:20px;align-items:center"><a href="https://www.linkedin.com/in/sid-siddarth/" target="_blank" rel="noopener">LinkedIn</a><a href="#home">Back to top ↑</a></div>
+  </div>
+  <div class="container legal">
+    Meridian Admissions is an admissions advisory brand operated by FAIRBURN PARTNERSHIP FIRM, a registered partnership firm in India.<br>GSTIN: 20AALFF1489R1ZW
   </div>
 </footer>
 
