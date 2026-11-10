@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meridian Admissions | MBA & Graduate Admissions Advisory</title>
 <meta name="description" content="Personalized MBA and graduate admissions guidance for ambitious Indian students and professionals applying to leading US universities.">
-<meta name="theme-color" content="#2a1f18">
+<meta name="theme-color" content="#1f1712">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --brown:#2a1f18; --brown-2:#3a2b21; --cream:#f6f0e6; --paper:#fbf8f2;
-  --orange:#e4600f; --orange-d:#c9500a; --gold:#b8935a;
-  --text:#3a312a; --muted:#7a6d60; --line:#ded1bc;
+  --brown:#1f1712; --brown-2:#33261d; --cream:#f7f2ea; --paper:#fdfbf7;
+  --orange:#d4570c; --orange-d:#b84a08; --gold:#b08d57;
+  --text:#3a312a; --muted:#7d7064; --line:#e6dccb;
   --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost",Arial,sans-serif;
   --container:1160px;
 }
@@ -42,8 +42,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 .nav-links a:not(.button):hover{color:var(--orange)}
 .menu-toggle{display:none;border:0;background:none;color:var(--brown);font-size:26px;cursor:pointer}
 
-.hero{position:relative;overflow:hidden;padding:120px 0 110px;background:var(--brown);color:#fff}
-.hero::after{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-190px;border:1px solid rgba(228,96,15,.45);border-radius:50%;box-shadow:0 0 0 40px rgba(184,147,90,.05),0 0 0 80px rgba(184,147,90,.03)}
+.hero{position:relative;overflow:hidden;padding:130px 0 120px;background:radial-gradient(ellipse at 80% 0%,#3a2a1f 0%,var(--brown) 60%);color:#fff}
+.hero::after{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-190px;border:1px solid rgba(176,141,87,.4);border-radius:50%;box-shadow:0 0 0 40px rgba(184,147,90,.05),0 0 0 80px rgba(184,147,90,.03)}
 .hero-content{position:relative;z-index:1;max-width:800px}
 .hero h1{color:#fff;margin:22px 0}
 .hero p{color:#d9cdbd;max-width:600px;font-size:18px;margin-bottom:36px}
@@ -106,12 +106,12 @@ section{padding:100px 0}
 .additional-card .price small{font-family:var(--sans);font-size:12px;color:var(--muted)}
 
 /* Approach: the one orange band */
-.difference-section{background:var(--orange);color:#fff}
-.difference-section h2,.difference-section h3{color:#fff}
-.difference-section .eyebrow{color:#fff;opacity:.85}
+.difference-section{background:#3a2418;color:#fff}
+.difference-section h2{color:#fff}.difference-section h3{color:#e8d3ab}
+.difference-section .eyebrow{color:var(--gold)}
 .difference-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
-.difference-item{border-top:1px solid rgba(255,255,255,.5);padding-top:20px}
-.difference-item p{color:#fff3e8;font-size:15px}
+.difference-item{border-top:1px solid rgba(176,141,87,.6);padding-top:20px}
+.difference-item p{color:#d9cdbd;font-size:15px}
 
 /* Contact */
 .contact-box{background:var(--brown);color:#fff;padding:70px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
@@ -126,6 +126,25 @@ footer{background:#1d150f;color:#fff;padding:35px 0}
 footer p{color:#b9ab9a;font-size:12px;margin:6px 0 0}
 footer a{color:var(--gold);font-size:13px}
 
+
+/* Soft edges and premium polish */
+.button{border-radius:999px;padding:14px 30px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.button-orange{box-shadow:0 8px 20px rgba(212,87,12,.22)}
+.menu-toggle{border-radius:10px}
+.service-card{border-top:1px solid var(--line);border-radius:20px;box-shadow:0 10px 30px rgba(31,23,18,.05)}
+.portrait{border-radius:26px;box-shadow:0 24px 50px rgba(31,23,18,.15)}
+.portrait::after{border-radius:16px}
+.stat{border-left:1px solid var(--line);border-radius:18px;background:var(--cream);border:1px solid var(--line)}
+.tags span{border-radius:999px;background:var(--paper)}
+.price-card{border-radius:22px;box-shadow:0 12px 34px rgba(31,23,18,.06)}
+.price-card.featured{border-radius:22px;box-shadow:0 22px 48px rgba(212,87,12,.14)}
+.recommended{border-radius:999px;padding:5px 14px}
+.addon{border-radius:10px;border-left:1px solid var(--line);border:1px solid var(--line)}
+.pricing-note{border-left:1px solid var(--line);border:1px solid var(--line);border-radius:16px}
+.additional-card{border-radius:20px;background:var(--cream)}
+.contact-box{border-radius:30px}
+.logo{letter-spacing:4px}
+.hero h1{font-weight:400;letter-spacing:-.5px}
 @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr)}.service-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.about-grid,.contact-box{grid-template-columns:1fr;gap:36px}.process-grid{grid-template-columns:repeat(2,1fr)}.portrait{max-width:420px}.contact-side{border:0;padding:0}}
 @media(max-width:650px){
@@ -193,15 +212,15 @@ footer a{color:var(--gold);font-size:13px}
 <section class="about-section" id="about">
   <div class="container about-grid">
     <div class="portrait">
-      <!-- PORTRAIT: save your photo as "portrait.jpg" in the same folder as this file -->
-      <img src="portrait.jpg" alt="Founder of Meridian Admissions" onerror="this.style.display='none'">
+      <!-- PORTRAIT: upload your photo to the same folder as this file. Accepted names: portrait.jpg / .jpeg / .png / .webp -->
+      <img id="founderPhoto" src="portrait.jpg" alt="Founder of Meridian Admissions">
       <div><span style="font-family:var(--serif);font-size:24px">Founder Portrait</span><br><small>Add portrait.jpg</small></div>
     </div>
 
     <div class="about-copy">
       <div class="eyebrow">The Person Behind Meridian</div>
       <h2>Someone who has been through it, and built a career on it.</h2>
-      <p>I have applied, been admitted, studied and worked in the United States. That experience, plus eight years advising businesses, is what I bring to your application.</p>
+      <p>I have applied, been admitted, studied and worked in the United States. That experience, plus eight years in professional consulting businesses, is what I bring to your application.</p>
 
       <div class="stats">
         <div class="stat">
@@ -384,6 +403,20 @@ footer a{color:var(--gold);font-size:13px}
     a.target = "_blank";
     a.rel = "noopener";
   });
+
+  /* Founder photo: tries common file names until one loads */
+  (function(){
+    const img = document.getElementById("founderPhoto");
+    const names = ["portrait.jpg","portrait.jpeg","portrait.png","portrait.webp",
+                   "Portrait.jpg","Portrait.jpeg","Portrait.png","portrait.JPG",
+                   "portrait.JPEG","portrait.PNG","Portrait.JPG","Portrait.PNG"];
+    let i = 0;
+    img.onerror = function(){
+      i++;
+      if (i < names.length) { img.src = names[i]; }
+      else { img.style.display = "none"; }
+    };
+  })();
 
   function toggleMenu(){
     const nav = document.getElementById("navLinks");
