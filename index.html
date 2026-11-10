@@ -1,1022 +1,400 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Meridian Admissions | MBA & Graduate Admissions Advisory</title>
-  <meta name="description" content="Personalized MBA and graduate admissions guidance for ambitious Indian students and professionals applying to leading international universities.">
-  <meta name="theme-color" content="#14243a">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --navy: #14243a;
-      --navy-light: #203750;
-      --ivory: #f8f6f1;
-      --white: #ffffff;
-      --gold: #b79a65;
-      --gold-light: #e7dcc5;
-      --text: #303943;
-      --muted: #6e7781;
-      --border: #e8e4dc;
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
-      --container: 1160px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-
-    body {
-      margin: 0;
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--ivory);
-      line-height: 1.7;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-
-    .container {
-      width: min(var(--container), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--serif);
-      font-weight: 500;
-      line-height: 1.18;
-      color: var(--navy);
-    }
-
-    h1 { font-size: clamp(44px, 6vw, 72px); }
-    h2 { font-size: clamp(34px, 4vw, 48px); }
-    h3 { font-size: 25px; }
-
-    p { color: var(--muted); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 23px;
-      border: 1px solid var(--navy);
-      background: var(--navy);
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .3px;
-      transition: .2s ease;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      background: var(--navy-light);
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      background: transparent;
-      color: var(--navy);
-    }
-
-    .button-outline:hover {
-      color: white;
-    }
-
-    .button-gold {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy);
-    }
-
-    /* Navigation */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248,246,241,.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav-inner {
-      min-height: 78px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .logo {
-      font-family: var(--serif);
-      color: var(--navy);
-      font-size: 25px;
-      letter-spacing: 1px;
-      line-height: 1;
-    }
-
-    .logo span {
-      display: block;
-      margin-top: 6px;
-      font-family: var(--sans);
-      color: var(--gold);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 27px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .nav-links a:not(.button):hover { color: var(--gold); }
-
-    .menu-toggle {
-      display: none;
-      border: 0;
-      background: none;
-      color: var(--navy);
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    /* Hero */
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 115px 0 105px;
-      background: var(--navy);
-      color: white;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -160px;
-      top: -180px;
-      border: 1px solid rgba(183,154,101,.3);
-      border-radius: 50%;
-      box-shadow: 0 0 0 55px rgba(183,154,101,.035),
-                  0 0 0 110px rgba(183,154,101,.025);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 780px;
-    }
-
-    .hero .eyebrow { color: #d5bd8e; }
-
-    .hero h1 {
-      color: white;
-      max-width: 760px;
-      margin: 22px 0;
-    }
-
-    .hero p {
-      color: #d0d7df;
-      max-width: 590px;
-      font-size: 17px;
-      margin-bottom: 34px;
-    }
-
-    .hero .button-outline {
-      color: white;
-      border-color: rgba(255,255,255,.5);
-      margin-left: 10px;
-    }
-
-    .hero-note {
-      margin-top: 65px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(255,255,255,.18);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 35px;
-      color: #e2e5e8;
-      font-size: 12px;
-      letter-spacing: .5px;
-    }
-
-    .hero-note strong {
-      display: block;
-      color: #d5bd8e;
-      font-family: var(--serif);
-      font-size: 25px;
-      font-weight: 500;
-    }
-
-    /* General sections */
-
-    section { padding: 95px 0; }
-
-    .section-heading {
-      max-width: 680px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 { margin: 15px 0; }
-
-    .section-heading p { font-size: 15px; }
-
-    /* Services overview */
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      padding: 28px 23px;
-      background: white;
-      border: 1px solid var(--border);
-      transition: .2s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold);
-    }
-
-    .service-number {
-      font-family: var(--serif);
-      color: var(--gold);
-      font-size: 29px;
-    }
-
-    .service-card h3 { font-size: 21px; margin: 16px 0 8px; }
-    .service-card p { font-size: 13px; margin: 0; }
-
-    /* About */
-
-    .about-section { background: white; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 75px;
-      align-items: center;
-    }
-
-    .portrait {
-      min-height: 490px;
-      background: linear-gradient(145deg, #d9d4c8, #aab3b8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--navy);
-      text-align: center;
-      padding: 30px;
-    }
-
-    .portrait span {
-      display: block;
-      font-family: var(--serif);
-      font-size: 22px;
-    }
-
-    .portrait small {
-      display: block;
-      margin-top: 8px;
-      font-size: 11px;
-      letter-spacing: 1px;
-    }
-
-    .about-copy h2 { margin: 14px 0 20px; }
-
-    .credential-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
-      margin-top: 30px;
-    }
-
-    .credential {
-      padding: 15px;
-      background: var(--ivory);
-      border-left: 2px solid var(--gold);
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Process */
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-
-    .process-item {
-      border-top: 1px solid var(--gold);
-      padding-top: 20px;
-    }
-
-    .process-item .number {
-      color: var(--gold);
-      font-family: var(--serif);
-      font-size: 34px;
-    }
-
-    .process-item h3 { font-size: 20px; margin: 12px 0 8px; }
-    .process-item p { font-size: 13px; }
-
-    /* Pricing */
-
-    .pricing-section { background: white; }
-
-    .pricing-intro {
-      max-width: 700px;
-      margin-bottom: 35px;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      position: relative;
-      padding: 30px 25px;
-      border: 1px solid var(--border);
-      background: var(--ivory);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-card.featured {
-      border: 2px solid var(--gold);
-      background: #fbf8f1;
-    }
-
-    .recommended {
-      position: absolute;
-      top: -13px;
-      right: 18px;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 5px 12px;
-      font-size: 9px;
-      letter-spacing: 1px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .price-card h3 { font-size: 23px; margin: 8px 0; }
-
-    .price {
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: 32px;
-      margin: 12px 0;
-    }
-
-    .price-card p { font-size: 13px; }
-
-    .price-card ul {
-      padding-left: 18px;
-      margin: 12px 0 25px;
-      color: var(--muted);
-      font-size: 13px;
-      flex-grow: 1;
-    }
-
-    .price-card li { margin: 8px 0; }
-
-    .price-card .button { width: 100%; }
-
-    .pricing-note {
-      margin-top: 28px;
-      padding: 18px 20px;
-      background: var(--ivory);
-      border-left: 2px solid var(--gold);
-      font-size: 12px;
-    }
-
-    .subsection-title {
-      margin: 65px 0 25px;
-      font-family: var(--serif);
-      font-size: 30px;
-      color: var(--navy);
-    }
-
-    .additional-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .additional-card {
-      border: 1px solid var(--border);
-      padding: 23px;
-    }
-
-    .additional-card h3 { font-size: 20px; margin: 0 0 8px; }
-    .additional-card p { font-size: 13px; }
-
-    /* Differentiators */
-
-    .difference-section { background: var(--navy); color: white; }
-
-    .difference-section h2 { color: white; }
-    .difference-section p { color: #c8d0d8; }
-
-    .difference-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 35px;
-    }
-
-    .difference-item {
-      border-top: 1px solid rgba(255,255,255,.25);
-      padding-top: 20px;
-    }
-
-    .difference-item h3 { color: #e0c99c; font-size: 21px; }
-    .difference-item p { font-size: 13px; }
-
-    /* Contact */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 65px;
-      align-items: start;
-    }
-
-    .contact-panel {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 30px;
-      min-height: 300px;
-    }
-
-    .contact-panel h3 { margin-top: 0; }
-
-    .form-placeholder {
-      min-height: 190px;
-      border: 1px dashed #c8c1b3;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .contact-detail {
-      padding: 17px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-detail strong {
-      display: block;
-      color: var(--navy);
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* Footer */
-
-    footer {
-      background: #101d2e;
-      color: white;
-      padding: 35px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    footer p { color: #b9c1ca; font-size: 11px; }
-    footer a { color: #e0c99c; font-size: 12px; }
-
-    @media (max-width: 900px) {
-      .service-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
-      .portrait { min-height: 350px; }
-    }
-
-    @media (max-width: 650px) {
-      .container { width: min(100% - 34px, var(--container)); }
-      section { padding: 68px 0; }
-      .nav-inner { min-height: 68px; }
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        padding: 25px;
-        background: var(--ivory);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 18px;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links .button { text-align: center; }
-      .hero { padding: 85px 0 70px; }
-      .hero .button { margin: 5px 0; width: 100%; }
-      .hero .button-outline { margin-left: 0; }
-      .hero-note { gap: 22px; margin-top: 45px; }
-      .service-grid, .process-grid, .pricing-grid,
-      .additional-grid, .difference-grid,
-      .credential-list { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Admissions | MBA & Graduate Admissions Advisory</title>
+<meta name="description" content="Personalized MBA and graduate admissions guidance for ambitious Indian students and professionals applying to leading US universities.">
+<meta name="theme-color" content="#2a1f18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown:#2a1f18; --brown-2:#3a2b21; --cream:#f6f0e6; --paper:#fbf8f2;
+  --orange:#e4600f; --orange-d:#c9500a; --gold:#b8935a;
+  --text:#3a312a; --muted:#7a6d60; --line:#ded1bc;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost",Arial,sans-serif;
+  --container:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.7}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
+.eyebrow{color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;color:var(--brown)}
+h1{font-size:clamp(46px,6.4vw,82px)} h2{font-size:clamp(36px,4.2vw,54px)} h3{font-size:27px}
+p{color:var(--muted)}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border:1px solid var(--brown);background:var(--brown);color:#fff;font-size:13px;font-weight:500;letter-spacing:.6px;transition:.2s ease;cursor:pointer}
+.button:hover{background:var(--brown-2)}
+.button-outline{background:transparent;color:var(--brown)}
+.button-outline:hover{background:var(--brown);color:#fff}
+.button-orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.button-orange:hover{background:var(--orange-d);border-color:var(--orange-d)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+.navbar{position:sticky;top:0;z-index:100;background:rgba(246,240,230,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav-inner{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.logo{font-family:var(--serif);color:var(--brown);font-size:27px;letter-spacing:3px;line-height:1}
+.logo span{display:block;margin-top:6px;font-family:var(--sans);color:var(--orange);font-size:9px;font-weight:500;letter-spacing:4px}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:500;color:var(--brown)}
+.nav-links a:not(.button):hover{color:var(--orange)}
+.menu-toggle{display:none;border:0;background:none;color:var(--brown);font-size:26px;cursor:pointer}
+
+.hero{position:relative;overflow:hidden;padding:120px 0 110px;background:var(--brown);color:#fff}
+.hero::after{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-190px;border:1px solid rgba(228,96,15,.45);border-radius:50%;box-shadow:0 0 0 40px rgba(184,147,90,.05),0 0 0 80px rgba(184,147,90,.03)}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{color:#fff;margin:22px 0}
+.hero p{color:#d9cdbd;max-width:600px;font-size:18px;margin-bottom:36px}
+.hero .button-outline{color:#fff;border-color:rgba(255,255,255,.45);margin-left:10px}
+.hero .button-outline:hover{background:#fff;color:var(--brown)}
+
+section{padding:100px 0}
+.section-heading{max-width:700px;margin-bottom:48px}
+.section-heading h2{margin:15px 0}
+.section-heading p{font-size:16px}
+
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service-card{padding:30px 24px;background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--orange)}
+.service-card h3{font-size:23px;margin:0 0 8px}
+.service-card p{font-size:14px;margin:0}
+
+/* About */
+.about-section{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.portrait{position:relative;aspect-ratio:4/5;background:linear-gradient(145deg,#e4d8c3,#c9b89b);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--brown);overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait::after{content:"";position:absolute;inset:14px;border:1px solid rgba(184,147,90,.8);pointer-events:none}
+.about-copy h2{margin:14px 0 20px}
+.stats{display:grid;gap:14px;margin-top:32px}
+.stat{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center;padding:22px;background:var(--cream);border-left:3px solid var(--orange)}
+.stat .big{font-family:var(--serif);font-size:54px;line-height:1;color:var(--orange);font-weight:500}
+.stat .big small{font-size:20px;color:var(--brown);font-weight:500}
+.stat h3{font-size:22px;margin:0 0 4px}
+.stat p{margin:0;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags span{border:1px solid var(--gold);color:var(--brown);font-size:12px;padding:3px 12px;font-weight:500}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+.process-item{border-top:1px solid var(--gold);padding-top:20px}
+.process-item .number{color:var(--orange);font-family:var(--serif);font-size:38px}
+.process-item h3{font-size:23px;margin:10px 0 8px}
+.process-item p{font-size:14px;margin:0 0 14px}
+.process-item .button{padding:11px 20px}
+
+/* Pricing */
+.pricing-section{background:var(--paper)}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;margin-top:30px}
+.price-card{position:relative;padding:32px 24px;border:1px solid var(--line);background:var(--cream);display:flex;flex-direction:column}
+.price-card.featured{border:2px solid var(--orange);background:#fff}
+.recommended{position:absolute;top:-13px;left:24px;background:var(--orange);color:#fff;padding:4px 12px;font-size:10px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase}
+.price-card h3{font-size:25px;margin:8px 0}
+.price{color:var(--brown);font-family:var(--serif);font-size:38px;margin:8px 0;font-weight:500}
+.scope{font-size:13px;font-weight:500;color:var(--orange);margin:0 0 10px}
+.addon{font-size:12px;background:var(--paper);border-left:2px solid var(--gold);padding:8px 10px;margin:0 0 6px;color:var(--text)}
+.price-card ul{padding-left:18px;margin:12px 0 26px;color:var(--muted);font-size:14px;flex-grow:1}
+.price-card li{margin:7px 0}
+.price-card .button{width:100%}
+.pricing-note{margin-top:28px;padding:18px 20px;background:var(--cream);border-left:2px solid var(--gold);font-size:13px}
+.subsection-title{margin:65px 0 22px;font-size:32px}
+.additional-card{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border:1px solid var(--line);padding:26px}
+.additional-card h3{font-size:23px;margin:0 0 4px}
+.additional-card p{margin:0;font-size:14px}
+.additional-card .price{font-size:30px;margin:0}
+.additional-card .price small{font-family:var(--sans);font-size:12px;color:var(--muted)}
+
+/* Approach: the one orange band */
+.difference-section{background:var(--orange);color:#fff}
+.difference-section h2,.difference-section h3{color:#fff}
+.difference-section .eyebrow{color:#fff;opacity:.85}
+.difference-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+.difference-item{border-top:1px solid rgba(255,255,255,.5);padding-top:20px}
+.difference-item p{color:#fff3e8;font-size:15px}
+
+/* Contact */
+.contact-box{background:var(--brown);color:#fff;padding:70px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.contact-box h2{color:#fff;margin:14px 0}
+.contact-box p{color:#d9cdbd}
+.contact-side{border-left:1px solid rgba(255,255,255,.2);padding-left:40px}
+.contact-side strong{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.contact-side a.mail{color:#fff;font-size:18px;border-bottom:1px solid var(--gold)}
+
+footer{background:#1d150f;color:#fff;padding:35px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer p{color:#b9ab9a;font-size:12px;margin:6px 0 0}
+footer a{color:var(--gold);font-size:13px}
+
+@media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr)}.service-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.about-grid,.contact-box{grid-template-columns:1fr;gap:36px}.process-grid{grid-template-columns:repeat(2,1fr)}.portrait{max-width:420px}.contact-side{border:0;padding:0}}
+@media(max-width:650px){
+  .container{width:min(100% - 34px,var(--container))}
+  section{padding:68px 0}
+  .menu-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:78px;left:0;right:0;padding:25px;background:var(--cream);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:18px}
+  .nav-links.open{display:flex}
+  .hero{padding:85px 0 75px}
+  .hero .button{width:100%;margin:5px 0}
+  .hero .button-outline{margin-left:0}
+  .service-grid,.process-grid,.pricing-grid,.difference-grid{grid-template-columns:1fr}
+  .stat{grid-template-columns:1fr;gap:8px}
+  .contact-box{padding:44px 26px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
 
 <header class="navbar">
   <div class="container nav-inner">
-    <a href="#home" class="logo">
-      MERIDIAN
-      <span>ADMISSIONS</span>
-    </a>
-
-    <button class="menu-toggle" aria-label="Toggle navigation"
-      aria-expanded="false" onclick="toggleMenu()">☰</button>
-
+    <a href="#home" class="logo">MERIDIAN<span>ADMISSIONS</span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
     <nav class="nav-links" id="navLinks">
       <a href="#home" onclick="closeMenu()">Home</a>
       <a href="#about" onclick="closeMenu()">About</a>
-      <a href="#services" onclick="closeMenu()">Services</a>
       <a href="#process" onclick="closeMenu()">How It Works</a>
-      <a href="#contact" class="button" onclick="closeMenu()">Book a Call</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="https://tally.so/r/BEKN7K" class="button button-orange cta" onclick="closeMenu()">Book a Free Call</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- HOME -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <div class="eyebrow">Independent Graduate Admissions Advisory</div>
-        <h1>Your next chapter starts with the right application.</h1>
-        <p>
-          Personalized MBA and graduate admissions guidance for ambitious
-          Indian students and professionals pursuing opportunities at
-          leading international universities.
-        </p>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Independent Graduate Admissions Advisory</div>
+      <h1>Your next chapter starts with the right application.</h1>
+      <p>Personalized MBA and graduate admissions guidance for ambitious Indian students and professionals pursuing opportunities at leading US universities.</p>
+      <a class="button button-orange cta" href="https://tally.so/r/BEKN7K">Book a Free 15-Minute Call</a>
+      <a class="button button-outline" href="#services">Explore Our Services</a>
+    </div>
+  </div>
+</section>
 
-        <!-- Replace the booking URL below -->
-        <a class="button button-gold"
-           href="https://calendar.google.com/"
-           target="_blank" rel="noopener">
-          Book a Free Introductory Call
-        </a>
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What We Do</div>
+      <h2>Thoughtful guidance. A stronger application.</h2>
+      <p>Every applicant has a different story. Our approach helps you identify what makes yours compelling and communicate it with clarity, purpose and confidence.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><h3>MBA Admissions</h3><p>Application strategy, school selection, essays, résumé and interview preparation.</p></article>
+      <article class="service-card"><h3>Master's Admissions</h3><p>Guidance for engineering, technology and other graduate programs abroad.</p></article>
+      <article class="service-card"><h3>Application Reviews</h3><p>Focused feedback on essays, résumés, statements of purpose and recommendations.</p></article>
+      <article class="service-card"><h3>Interview Preparation</h3><p>Structured practice to help you communicate your experiences and goals.</p></article>
+    </div>
+  </div>
+</section>
 
-        <a class="button button-outline" href="#services">
-          Explore Our Services
-        </a>
+<section class="about-section" id="about">
+  <div class="container about-grid">
+    <div class="portrait">
+      <!-- PORTRAIT: save your photo as "portrait.jpg" in the same folder as this file -->
+      <img src="portrait.jpg" alt="Founder of Meridian Admissions" onerror="this.style.display='none'">
+      <div><span style="font-family:var(--serif);font-size:24px">Founder Portrait</span><br><small>Add portrait.jpg</small></div>
+    </div>
 
-        <div class="hero-note">
-          <div><strong>328</strong> GRE Score</div>
-          <div><strong>Georgia Tech</strong> Master's Degree</div>
-          <div><strong>Full Tuition</strong> MBA Scholarship</div>
+    <div class="about-copy">
+      <div class="eyebrow">The Person Behind Meridian</div>
+      <h2>Someone who has been through it, and built a career on it.</h2>
+      <p>I have applied, been admitted, studied and worked in the United States. That experience, plus eight years advising businesses, is what I bring to your application.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="big">M.S.</div>
+          <div><h3>Georgia Tech</h3><p>Master's in Electrical &amp; Computer Engineering</p></div>
+        </div>
+        <div class="stat">
+          <div class="big">8<small> yrs</small></div>
+          <div><h3>Consulting experience</h3>
+            <div class="tags"><span>Business development</span><span>Project management</span><span>GTM strategy</span></div></div>
+        </div>
+        <div class="stat">
+          <div class="big">MBA</div>
+          <div><h3>University of Georgia</h3><p>Strategy &amp; Marketing, with an Entrepreneurship Certification</p>
+            <div class="tags"><span>Full-tuition scholarship</span></div></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES OVERVIEW -->
-  <section>
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">What We Do</div>
-        <h2>Thoughtful guidance. A stronger application.</h2>
-        <p>
-          Every applicant has a different story. Our approach helps you
-          identify what makes yours compelling and communicate it with
-          clarity, purpose and confidence.
-        </p>
-      </div>
-
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-number">01</div>
-          <h3>MBA Admissions</h3>
-          <p>Application strategy, school selection, essays, résumé and interview preparation.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-number">02</div>
-          <h3>Master's Admissions</h3>
-          <p>Guidance for engineering, technology and other graduate programs abroad.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-number">03</div>
-          <h3>Application Reviews</h3>
-          <p>Focused feedback on essays, résumés, statements of purpose and recommendations.</p>
-        </article>
-
-        <article class="service-card">
-          <div class="service-number">04</div>
-          <h3>Interview Preparation</h3>
-          <p>Structured practice to help you communicate your experiences and goals.</p>
-        </article>
-      </div>
+<section id="process">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">How It Works</div>
+      <h2>A clear process, from first conversation to final application.</h2>
+      <p>A structured, collaborative process designed around your goals, application timeline and individual requirements.</p>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="container about-grid">
-      <div class="portrait">
-        <div>
-          <!-- Replace this placeholder with your professional portrait -->
-          <span>Founder Portrait</span>
-          <small>ADD YOUR PROFESSIONAL PHOTO HERE</small>
-        </div>
-      </div>
-
-      <div class="about-copy">
-        <div class="eyebrow">The Person Behind Meridian</div>
-        <h2>Guidance grounded in experience.</h2>
-
-        <p>
-          Applying to graduate school is more than completing forms and
-          writing essays. It is about understanding your experiences,
-          defining your direction and presenting a convincing case for
-          why a particular program is right for you.
-        </p>
-
-        <p>
-          Meridian Admissions was created from firsthand experience
-          navigating graduate applications, studying and working in the
-          United States, and making the academic and career decisions
-          that follow.
-        </p>
-
-        <p>
-          The founder's journey includes multiple graduate application
-          cycles, a master's degree from Georgia Institute of Technology,
-          and an MBA from the University of Georgia's Terry College of
-          Business, supported by a full-tuition scholarship.
-        </p>
-
-        <div class="credential-list">
-          <div class="credential">GRE: 328</div>
-          <div class="credential">Georgia Tech Master's</div>
-          <div class="credential">UGA Terry MBA</div>
-          <div class="credential">Full-Tuition Scholarship</div>
-        </div>
-      </div>
+    <div class="process-grid">
+      <article class="process-item"><div class="number">01</div><h3>Profile Enquiry</h3><p>Share your background, academic interests, experience and target intake in a short form.</p><a class="button button-outline cta" href="https://tally.so/r/BEKN7K">Start Your Enquiry</a></article>
+      <article class="process-item"><div class="number">02</div><h3>Free Introductory Call</h3><p>We set up a time and speak for 15 minutes about your goals and where you need support. No charge.</p></article>
+      <article class="process-item"><div class="number">03</div><h3>Recommendation &amp; Price List</h3><p>You receive my price list by email, along with my recommendation for your situation.</p></article>
+      <article class="process-item"><div class="number">04</div><h3>Proposal &amp; Onboarding</h3><p>Review the scope, fees, timelines and engagement terms before starting.</p></article>
+      <article class="process-item"><div class="number">05</div><h3>Application Development</h3><p>Work through school research, application strategy, essays and supporting materials.</p></article>
+      <article class="process-item"><div class="number">06</div><h3>Final Review &amp; Interviews</h3><p>Complete final application checks and prepare for interviews where included.</p></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">How It Works</div>
-        <h2>A clear process, from first conversation to final application.</h2>
-        <p>
-          A structured, collaborative process designed around your
-          goals, application timeline and individual requirements.
-        </p>
-      </div>
-
-      <div class="process-grid">
-        <article class="process-item">
-          <div class="number">01</div>
-          <h3>Profile Enquiry</h3>
-          <p>Tell us about your background, academic interests, experience and target intake.</p>
-        </article>
-
-        <article class="process-item">
-          <div class="number">02</div>
-          <h3>Introductory Call</h3>
-          <p>Discuss your goals, current plans and the areas where you need support.</p>
-        </article>
-
-        <article class="process-item">
-          <div class="number">03</div>
-          <h3>Service Recommendation</h3>
-          <p>Receive a recommendation based on your needs and the level of guidance required.</p>
-        </article>
-
-        <article class="process-item">
-          <div class="number">04</div>
-          <h3>Proposal & Onboarding</h3>
-          <p>Review the scope, fees, timelines and engagement terms before starting.</p>
-        </article>
-
-        <article class="process-item">
-          <div class="number">05</div>
-          <h3>Application Development</h3>
-          <p>Work through school research, application strategy, essays and supporting materials.</p>
-        </article>
-
-        <article class="process-item">
-          <div class="number">06</div>
-          <h3>Final Review & Interviews</h3>
-          <p>Complete final application checks and prepare for interviews where included.</p>
-        </article>
-      </div>
+<section class="pricing-section" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Services &amp; Investment</div>
+      <h2>Admissions support designed around your ambitions.</h2>
+      <p>Choose the level of support that fits your application journey. We begin with a free conversation before recommending an engagement.</p>
     </div>
-  </section>
 
-  <!-- PRICING -->
-  <section class="pricing-section" id="services">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">Services & Investment</div>
-        <h2>Admissions support designed around your ambitions.</h2>
-        <p>
-          Choose the level of support that fits your application journey.
-          We begin with a conversation to understand your needs before
-          recommending an engagement.
-        </p>
-      </div>
+    <h3>MBA Admissions</h3>
+    <div class="pricing-grid">
+      <article class="price-card">
+        <div class="eyebrow">Entry product</div>
+        <h3>Profile &amp; School Strategy</h3>
+        <div class="price">₹25,000</div>
+        <p class="scope">One-time engagement</p>
+        <ul>
+          <li>Detailed profile assessment</li>
+          <li>Career goals assessment</li>
+          <li>One 60-minute consultation</li>
+          <li>School shortlisting and rationale</li>
+          <li>Application strategy and next steps</li>
+        </ul>
+        <p style="font-size:13px">For applicants who want expert guidance but prefer to execute applications themselves.</p>
+        <a class="button button-outline cta" href="https://tally.so/r/BEKN7K">Enquire Now</a>
+      </article>
 
-      <div class="pricing-intro">
-        <h3>MBA Admissions</h3>
-        <p>Personalized support for applicants targeting leading MBA programs in India and internationally.</p>
-      </div>
+      <article class="price-card">
+        <div class="eyebrow">Focused support</div>
+        <h3>Single-School Comprehensive</h3>
+        <div class="price">₹75,000</div>
+        <p class="scope">One business school</p>
+        <p class="addon">In addition to the Profile &amp; School Strategy package</p>
+        <ul>
+          <li>Profile and goals analysis</li>
+          <li>One school-specific brainstorming session</li>
+          <li>Up to 4 essay review rounds per school</li>
+          <li>Up to 2 résumé and LOR review rounds</li>
+          <li>Final application consistency review</li>
+        </ul>
+        <a class="button button-outline cta" href="https://tally.so/r/BEKN7K">Enquire Now</a>
+      </article>
 
-      <div class="pricing-grid">
+      <article class="price-card featured">
+        <div class="recommended">Recommended flagship</div>
+        <div class="eyebrow">Best value</div>
+        <h3>Three-School Comprehensive</h3>
+        <div class="price">₹1,65,000</div>
+        <p class="scope">Up to three business schools</p>
+        <ul>
+          <li>Everything in the single-school package</li>
+          <li>School-specific brainstorming for each school</li>
+          <li>Defined essay and résumé review rounds</li>
+          <li>One profile and goals consultation</li>
+          <li>Application strategy and deadline tracking</li>
+        </ul>
+        <a class="button button-orange cta" href="https://tally.so/r/BEKN7K">Discuss This Package</a>
+      </article>
 
-        <article class="price-card">
-          <div class="eyebrow">Strategy</div>
-          <h3>Profile & School Strategy</h3>
-          <div class="price">₹35,000</div>
-          <p>Build a clearer application direction before committing to a full engagement.</p>
-          <ul>
-            <li>Profile and goals assessment</li>
-            <li>School selection guidance</li>
-            <li>One strategy discussion</li>
-            <li>Application planning</li>
-          </ul>
-          <a class="button button-outline" href="#contact">Enquire Now</a>
-        </article>
-
-        <article class="price-card">
-          <div class="eyebrow">Focused Support</div>
-          <h3>Single-School Comprehensive</h3>
-          <div class="price">₹75,000</div>
-          <p>Structured support for one carefully selected MBA application.</p>
-          <ul>
-            <li>Profile and goals assessment</li>
-            <li>School-specific brainstorming</li>
-            <li>3–4 essay review rounds</li>
-            <li>Résumé and recommendation review</li>
-          </ul>
-          <a class="button button-outline" href="#contact">Enquire Now</a>
-        </article>
-
-        <article class="price-card featured">
-          <div class="recommended">Recommended</div>
-          <div class="eyebrow">Flagship Package</div>
-          <h3>Three-School Comprehensive</h3>
-          <div class="price">₹1,95,000</div>
-          <p>Deeper application support across three target MBA programs.</p>
-          <ul>
-            <li>Profile and goals assessment</li>
-            <li>School shortlisting</li>
-            <li>School-specific brainstorming</li>
-            <li>Essay, résumé and recommendation reviews</li>
-            <li>Defined interview preparation options</li>
-          </ul>
-          <a class="button button-gold" href="#contact">Discuss This Package</a>
-        </article>
-
-        <article class="price-card">
-          <div class="eyebrow">Multi-School</div>
-          <h3>Five-School Comprehensive</h3>
-          <div class="price">₹2,50,000</div>
-          <p>Coordinated application guidance across five target programs.</p>
-          <ul>
-            <li>Profile and school strategy</li>
-            <li>Five school-specific plans</li>
-            <li>Essay and application reviews</li>
-            <li>Interview preparation as agreed</li>
-          </ul>
-          <a class="button button-outline" href="#contact">Enquire Now</a>
-        </article>
-
-        <article class="price-card">
-          <div class="eyebrow">Premium Support</div>
-          <h3>Five-School Premium</h3>
-          <div class="price">₹3,40,000</div>
-          <p>More extensive, high-touch support throughout the application cycle.</p>
-          <ul>
-            <li>Five-school application strategy</li>
-            <li>Extended brainstorming and reviews</li>
-            <li>Collaborative application support</li>
-            <li>Expanded interview preparation</li>
-          </ul>
-          <a class="button button-outline" href="#contact">Enquire Now</a>
-        </article>
-
-      </div>
-
-      <div class="pricing-note">
-        Fees shown are indicative starting package prices. Final deliverables,
-        review limits, timelines, exclusions and applicable GST will be
-        specified in the engagement proposal. Admission outcomes and
-        scholarships are not guaranteed.
-      </div>
-
-      <h3 class="subsection-title">Additional Services</h3>
-
-      <div class="additional-grid">
-        <article class="additional-card">
-          <h3>Interview Preparation</h3>
-          <p>Focused interview practice and feedback for applicants who need targeted preparation.</p>
-        </article>
-
-        <article class="additional-card">
-          <h3>ISB Applications</h3>
-          <p>Application strategy and essay guidance for candidates targeting the Indian School of Business.</p>
-        </article>
-
-        <article class="additional-card">
-          <h3>DIY MBA Course</h3>
-          <p>Structured learning sessions for applicants who prefer to develop their applications independently.</p>
-        </article>
-      </div>
-
-      <h3 class="subsection-title">Master's Admissions</h3>
-      <p>
-        Applying for a master's degree in engineering, technology or another
-        discipline? We offer profile evaluation, university shortlisting,
-        statement-of-purpose guidance, résumé feedback and application
-        planning. Packages are scoped individually based on your target
-        programs and requirements.
-      </p>
-      <a class="button button-outline" href="#contact">Discuss Master's Applications</a>
+      <article class="price-card">
+        <div class="eyebrow">Multi-school</div>
+        <h3>Five-School Comprehensive</h3>
+        <div class="price">₹2,50,000</div>
+        <p class="scope">Up to five business schools</p>
+        <ul>
+          <li>Everything in the three-school package</li>
+          <li>Five school-specific application strategies</li>
+          <li>Additional essay and résumé reviews within defined limits</li>
+          <li>Application deadline management</li>
+        </ul>
+        <a class="button button-outline cta" href="https://tally.so/r/BEKN7K">Enquire Now</a>
+      </article>
     </div>
-  </section>
 
-  <!-- DIFFERENTIATORS -->
-  <section class="difference-section">
-    <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow">The Meridian Approach</div>
-        <h2>A more personal approach to a significant decision.</h2>
+    <div class="pricing-note">Fees shown are indicative package prices. Final deliverables, review limits, timelines, exclusions and applicable GST will be specified in the engagement proposal. Admission outcomes and scholarships are not guaranteed.</div>
+
+    <h3 class="subsection-title">Additional Services</h3>
+    <article class="additional-card">
+      <div>
+        <h3>Interview Preparation</h3>
+        <p>Two rounds of preparation and one mock interview, per school.</p>
       </div>
+      <div class="price">₹20,000 <small>per school</small></div>
+    </article>
 
-      <div class="difference-grid">
-        <article class="difference-item">
-          <h3>Firsthand Perspective</h3>
-          <p>Advice informed by personal experience applying to, studying at and working in the United States.</p>
-        </article>
+    <h3 class="subsection-title">Master's Admissions</h3>
+    <p style="max-width:720px">Applying for a master's degree in engineering, technology or another discipline? I offer profile evaluation, university shortlisting, statement-of-purpose guidance, résumé feedback and application planning. Packages are scoped individually based on your target programs.</p>
+    <a class="button button-outline cta" href="https://tally.so/r/BEKN7K">Discuss Master's Applications</a>
+  </div>
+</section>
 
-        <article class="difference-item">
-          <h3>Individual Attention</h3>
-          <p>Your professional experiences, goals and motivations shape the application strategy.</p>
-        </article>
-
-        <article class="difference-item">
-          <h3>Clarity Over Templates</h3>
-          <p>We focus on helping applicants communicate their own stories rather than forcing them into generic narratives.</p>
-        </article>
-      </div>
+<section class="difference-section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">The Meridian Approach</div>
+      <h2>A more personal approach to a significant decision.</h2>
     </div>
-  </section>
+    <div class="difference-grid">
+      <article class="difference-item"><h3>Firsthand Perspective</h3><p>Advice informed by personal experience applying to, studying at and working in the United States.</p></article>
+      <article class="difference-item"><h3>Individual Attention</h3><p>Your professional experiences, goals and motivations shape the application strategy.</p></article>
+      <article class="difference-item"><h3>Clarity Over Templates</h3><p>We help applicants communicate their own stories rather than forcing them into generic narratives.</p></article>
+    </div>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container contact-grid">
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
       <div>
         <div class="eyebrow">Start a Conversation</div>
-        <h2>Let's understand where you want to go.</h2>
-        <p>
-          Tell us a little about your background and the programs you're
-          considering. We'll use an introductory conversation to determine
-          whether our services are the right fit.
-        </p>
-
-        <div class="contact-detail">
-          <strong>Email</strong>
-          <p>YOUR_EMAIL@example.com</p>
-        </div>
-
-        <div class="contact-detail">
-          <strong>Location</strong>
-          <p>India · Working with applicants internationally</p>
-        </div>
-
-        <p style="font-size:12px;">
-          The introductory call is intended to understand your needs and
-          explain our services. It is not a full profile evaluation or
-          application consultation.
-        </p>
+        <h2>Tell me about your goals and get a free 15-minute call.</h2>
+        <p>Fill in a short form with your details. I will reply to arrange a time for your free 15-minute call. The call is meant to understand your needs and explain the services; it is not a full profile evaluation.</p>
+        <a class="button button-orange cta" href="https://tally.so/r/BEKN7K">Book Your Free Call</a>
       </div>
-
-      <div class="contact-panel">
-        <h3>Enquire About Admissions Guidance</h3>
-
-        <div class="form-placeholder">
-          <p><strong>Your enquiry form will appear here.</strong></p>
-          <p>
-            Create a free form using Tally, then replace this placeholder
-            with its embed code.
-          </p>
-          <!--
-            Replace this block with your Tally embed:
-            <iframe src="YOUR_TALLY_FORM_URL"
-              width="100%" height="650"
-              frameborder="0" title="Meridian enquiry form">
-            </iframe>
-          -->
-          <a class="button button-outline"
-             href="mailto:YOUR_EMAIL@example.com?subject=Admissions%20Enquiry">
-            Email Us Instead
-          </a>
-        </div>
-
-        <p style="font-size:12px;">
-          Prefer a conversation first?
-          <a href="https://calendar.google.com/"
-             style="color:var(--gold);font-weight:700;"
-             target="_blank" rel="noopener">
-            Book an introductory call.
-          </a>
-        </p>
+      <div class="contact-side">
+        <strong>Email</strong>
+        <a class="mail" href="mailto:reply.siddarth@gmail.com">reply.siddarth@gmail.com</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="container footer-inner">
     <div>
-      <div class="logo" style="color:white;">MERIDIAN
-        <span>ADMISSIONS</span>
-      </div>
+      <div class="logo" style="color:#fff">MERIDIAN<span>ADMISSIONS</span></div>
       <p>Your experience. Your story. Your next chapter.</p>
     </div>
-
     <p>© <span id="year"></span> Meridian Admissions. All rights reserved.</p>
     <a href="#home">Back to top ↑</a>
   </div>
 </footer>
 
 <script>
-  function toggleMenu() {
+  /* ONE LINK FOR EVERY BUTTON: your Tally form */
+  const BOOKING_URL = "https://tally.so/r/BEKN7K";
+
+  document.querySelectorAll("a.cta").forEach(a => {
+    a.href = BOOKING_URL;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+
+  function toggleMenu(){
     const nav = document.getElementById("navLinks");
-    const button = document.querySelector(".menu-toggle");
-    const isOpen = nav.classList.toggle("open");
-    button.setAttribute("aria-expanded", String(isOpen));
+    const open = nav.classList.toggle("open");
+    document.querySelector(".menu-toggle").setAttribute("aria-expanded", String(open));
   }
-
-  function closeMenu() {
+  function closeMenu(){
     document.getElementById("navLinks").classList.remove("open");
-    document.querySelector(".menu-toggle")
-      .setAttribute("aria-expanded", "false");
+    document.querySelector(".menu-toggle").setAttribute("aria-expanded","false");
   }
-
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
